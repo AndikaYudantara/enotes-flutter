@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAqaxym86qIZ3-BNLiwo8BVetFm-prExpw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>87016744992</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>id.yudantara.eNotes</string>
+	<key>PROJECT_ID</key>
+	<string>enotes-flutter-yudantara</string>
+	<key>STORAGE_BUCKET</key>
+	<string>enotes-flutter-yudantara.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:87016744992:ios:2a7448569b38ee2b127445</string>
+</dict>
+</plist>

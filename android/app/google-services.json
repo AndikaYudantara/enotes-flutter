@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "87016744992",
+    "project_id": "enotes-flutter-yudantara",
+    "storage_bucket": "enotes-flutter-yudantara.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87016744992:android:76bf0c8d10bdbaa5127445",
+        "android_client_info": {
+          "package_name": "id.yudantara.e_notes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWHwes2S29N6SY-WjYITSgm20ME6ZSo08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
