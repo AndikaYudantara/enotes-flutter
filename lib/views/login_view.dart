@@ -1,7 +1,6 @@
-// ignore_for_file: avoid_print
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'dart:developer' as devtools show log;
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -32,6 +31,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Login'),
       ),
       body: Column(
@@ -61,16 +61,16 @@ class _LoginViewState extends State<LoginView> {
                 final userCredential = await FirebaseAuth.instance
                     .signInWithEmailAndPassword(
                         email: email, password: password);
-                print(userCredential);
-                print('Login Success!');
+                devtools.log(userCredential.toString());
+                devtools.log('Login Success!');
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'user-not-found') {
-                  print(
+                  devtools.log(
                       'Akun tidak ditemukan, coba periksa kembali email anda');
                 } else if (e.code == 'wrong-password') {
-                  print('Password salah');
+                  devtools.log('Password salah');
                 } else {
-                  print(e.code);
+                  devtools.log(e.code);
                 }
               }
             },
