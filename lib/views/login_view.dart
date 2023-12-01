@@ -1,3 +1,4 @@
+import 'package:e_notes/constants/routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer' as devtools show log;
@@ -58,16 +59,26 @@ class _LoginViewState extends State<LoginView> {
               final password = _password.text;
 
               try {
-                await FirebaseAuth.instance.signInWithEmailAndPassword(
+                final userCredential =
+                    await FirebaseAuth.instance.signInWithEmailAndPassword(
                   email: email,
                   password: password,
                 );
-                devtools.log('Login Success!');
-                if (!mounted) return;
-                Navigator.of(context).restorablePushNamedAndRemoveUntil(
-                  '/notes/',
-                  (route) => false,
-                );
+                if (userCredential.user?.emailVerified ?? false) {
+                  devtools.log('Login Success!');
+                  if (!mounted) return;
+                  Navigator.of(context).restorablePushNamedAndRemoveUntil(
+                    notesRoute,
+                    (route) => false,
+                  );
+                } else {
+                  devtools.log('Email belum diverifikasi');
+                  if (!mounted) return;
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                    verifyRoute,
+                    (route) => false,
+                  );
+                }
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'user-not-found') {
                   devtools.log(
@@ -84,7 +95,7 @@ class _LoginViewState extends State<LoginView> {
           TextButton(
             onPressed: () {
               Navigator.of(context).pushNamedAndRemoveUntil(
-                '/register/',
+                registerRoute,
                 (route) => false,
               );
             },

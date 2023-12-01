@@ -1,3 +1,4 @@
+import 'package:e_notes/constants/routes.dart';
 import 'package:e_notes/firebase_options.dart';
 import 'package:e_notes/views/login_view.dart';
 import 'package:e_notes/views/register_view.dart';
@@ -11,16 +12,17 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MaterialApp(
-      title: 'Flutter Demo',
+      title: 'E-notes',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home: const HomePage(),
       routes: {
-        '/login/': (context) => const LoginView(),
-        '/register/': (context) => const RegisterView(),
-        '/notes/': (context) => const NotesView(),
+        loginRoute: (context) => const LoginView(),
+        registerRoute: (context) => const RegisterView(),
+        verifyRoute: (context) => const VerifyEmailView(),
+        notesRoute: (context) => const NotesView(),
       },
     ),
   );
@@ -83,7 +85,7 @@ class _NotesViewState extends State<NotesView> {
                     await FirebaseAuth.instance.signOut();
                     if (!mounted) return;
                     Navigator.of(context).pushNamedAndRemoveUntil(
-                      '/login/',
+                      loginRoute,
                       (_) => false,
                     );
                     devtools.log('Logout success!');
