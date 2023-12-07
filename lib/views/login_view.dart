@@ -77,9 +77,8 @@ class _LoginViewState extends State<LoginView> {
                   if (!mounted) return;
                   await showErrorDialog(context, 'Email not verified');
                   if (!mounted) return;
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                    verifyRoute,
-                    (route) => false,
+                  Navigator.of(context).pushNamed(
+                    verifyEmailRoute,
                   );
                 }
               } on UserNotFoundAuthException {
