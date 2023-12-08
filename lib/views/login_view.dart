@@ -1,7 +1,7 @@
 import 'package:e_notes/constants/routes.dart';
 import 'package:e_notes/services/auth/auth_exceptions.dart';
 import 'package:e_notes/services/auth/auth_service.dart';
-import 'package:e_notes/utilities/show_error_dialog.dart';
+import 'package:e_notes/utilities/dialogs/error_dialog.dart';
 import 'package:flutter/material.dart';
 
 // ignore: unused_import

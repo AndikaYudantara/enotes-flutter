@@ -1,8 +1,7 @@
 import 'package:e_notes/constants/routes.dart';
 import 'package:e_notes/services/auth/auth_exceptions.dart';
 import 'package:e_notes/services/auth/auth_service.dart';
-import 'package:e_notes/utilities/show_alert_dialog.dart';
-import 'package:e_notes/utilities/show_error_dialog.dart';
+import 'package:e_notes/utilities/dialogs/error_dialog.dart';
 import 'package:flutter/material.dart';
 
 class VerifyEmailView extends StatefulWidget {
@@ -31,7 +30,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
               try {
                 await AuthService.firebase().sendEmailVerification();
                 if (!mounted) return;
-                showAlertDialog(context, 'Email verification sended!');
+                showErrorDialog(context, 'Email verification sended!');
               } on GenericAuthException {
                 showErrorDialog(
                     context, 'Email verification error! Try again later');

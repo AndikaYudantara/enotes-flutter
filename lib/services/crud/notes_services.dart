@@ -6,6 +6,9 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' show join;
 
+// ignore: unused_import
+import 'dart:developer' as devtools show log;
+
 class NotesService {
   Database? _db;
 
