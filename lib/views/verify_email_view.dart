@@ -1,8 +1,7 @@
-import 'package:e_notes/constants/routes.dart';
-import 'package:e_notes/services/auth/auth_exceptions.dart';
-import 'package:e_notes/services/auth/auth_service.dart';
-import 'package:e_notes/utilities/dialogs/error_dialog.dart';
+import 'package:e_notes/services/auth/bloc/auth_bloc.dart';
+import 'package:e_notes/services/auth/bloc/auth_event.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class VerifyEmailView extends StatefulWidget {
   const VerifyEmailView({super.key});
@@ -26,26 +25,18 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
           const Text(
               "If you haven't recived a verification email yet, use the button below."),
           TextButton(
-            onPressed: () async {
-              try {
-                await AuthService.firebase().sendEmailVerification();
-                if (!mounted) return;
-                showErrorDialog(context, 'Email verification sended!');
-              } on GenericAuthException {
-                showErrorDialog(
-                    context, 'Email verification error! Try again later');
-              }
+            onPressed: () {
+              context.read<AuthBloc>().add(
+                    const AuthEventSendEmailVerification(),
+                  );
             },
             child: const Text('Send email verification'),
           ),
           TextButton(
-            onPressed: () async {
-              await AuthService.firebase().logOut();
-              if (!mounted) return;
-              Navigator.of(context).pushNamedAndRemoveUntil(
-                loginRoute,
-                (_) => false,
-              );
+            onPressed: () {
+              context.read<AuthBloc>().add(
+                    const AuthEventLogOut(),
+                  );
             },
             child: const Text('Back to login'),
           ),
