@@ -8,11 +8,9 @@ import 'package:e_notes/services/cloud/firebase_cloud_storage.dart';
 import 'package:e_notes/utilities/dialogs/logout_dialog.dart';
 import 'package:e_notes/views/notes/notes_list_view.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 // ignore: unused_import
 import 'dart:developer' as devtools show log;
-
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NotesView extends StatefulWidget {
   const NotesView({super.key});
